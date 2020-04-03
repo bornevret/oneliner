@@ -35,7 +35,14 @@ class FileObserver
     end
 
     def get_new_files
-        
+        path = File.join( @target_dir, "**/*" )
+        files.each do |file|
+            filetime = File.mtime(file)
+            if !@file_inventory.include?(file)
+                @file_inventory[file] = File.mtime(file)
+                @new_files << file
+            end
+        end
     end
 
     def get_file_inventory
