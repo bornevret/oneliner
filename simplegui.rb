@@ -27,3 +27,5 @@ class Guibutton
     
     
 end
+
+#inte färdig kod
